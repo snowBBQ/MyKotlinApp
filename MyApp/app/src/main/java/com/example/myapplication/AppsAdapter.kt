@@ -1,4 +1,4 @@
-package com.example.myapp
+package com.example.myapplication
 
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,7 @@ class AppsAdapter(
 ) : RecyclerView.Adapter<AppsAdapter.AppViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_2, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.app_item_layout, parent, false)
         return AppViewHolder(view)
     }
 
@@ -28,19 +28,8 @@ class AppsAdapter(
     override fun getItemCount() = apps.size
 
     inner class AppViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val appName: TextView = itemView.findViewById(android.R.id.text1)
-        val openButton: Button = Button(itemView.context).apply {
-            text = "Open"
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        }
-        val closeButton: Button = Button(itemView.context).apply {
-            text = "Close"
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        }
-
-        init {
-            itemView.addView(openButton)
-            itemView.addView(closeButton)
-        }
+        val appName: TextView = itemView.findViewById(R.id.app_name)
+        val openButton: Button = itemView.findViewById(R.id.open_button)
+        val closeButton: Button = itemView.findViewById(R.id.close_button)
     }
 }
